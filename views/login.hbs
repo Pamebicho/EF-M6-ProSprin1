@@ -1,0 +1,84 @@
+<div class="auth-outer">
+  <div class="auth-frame">
+    <!-- IZQUIERDA -->
+    <section class="auth-left">
+      <div class="auth-brand">
+        <span class="brand-mark"></span>
+        <span class="brand-name">KanbanPro</span>
+      </div>
+
+      <div class="mt-4">
+        <p class="auth-kicker mb-2">Bienvenido de vuelta</p>
+        <h1 class="auth-title mb-4">Iniciar sesión</h1>
+
+        <form>
+          <div class="mb-3">
+            <label class="form-label auth-label">Correo electrónico</label>
+            <div class="auth-input">
+              <input
+                class="form-control auth-control"
+                type="email"
+                placeholder="ejemplo@empresa.com"
+              />
+              <i class="bi bi-envelope auth-icon"></i>
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label auth-label">Contraseña</label>
+            <div class="auth-input">
+              <input
+                class="form-control auth-control"
+                type="password"
+                placeholder="••••••••"
+              />
+              <i class="bi bi-eye auth-icon"></i>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember" />
+              <label
+                class="form-check-label"
+                for="remember"
+                style="color:#94a3b8;font-size:.9rem;"
+              >
+                Recuérdame
+              </label>
+            </div>
+            <a class="auth-link" href="#" style="font-size:.9rem;">Olvidé mi
+              contraseña</a>
+          </div>
+
+          <!-- Simulación: entra directo al dashboard -->
+          <a class="btn auth-btn w-100" href="/dashboard">Iniciar sesión</a>
+
+          <div class="auth-divider my-4">
+            <span>o continuar con</span>
+          </div>
+
+          <div class="auth-social">
+            <button class="btn auth-social-btn" type="button" disabled>
+              <i class="bi bi-facebook"></i>
+            </button>
+            <button class="btn auth-social-btn" type="button" disabled>
+              <i class="bi bi-google"></i>
+            </button>
+            <button class="btn auth-social-btn" type="button" disabled>
+              <i class="bi bi-apple"></i>
+            </button>
+          </div>
+
+          <p class="auth-foot mt-4 mb-0">
+            ¿No tienes cuenta?
+            <a class="auth-link" href="/register">Regístrate</a>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- DERECHA -->
+    <aside class="auth-right" aria-hidden="true"></aside>
+  </div>
+</div>

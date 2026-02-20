@@ -1,0 +1,298 @@
+<div class="app-shell">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-dot"></div>
+      <div class="brand-text">
+        <div class="brand-title">KanbanPro</div>
+        <div class="brand-sub">Sprint Board</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item active" href="/dashboard">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </a>
+      <a class="nav-item" href="#">
+        <i class="bi bi-list-check"></i>
+        <span>Tareas</span>
+      </a>
+      <a class="nav-item" href="#">
+        <i class="bi bi-bug"></i>
+        <span>Incidencias</span>
+      </a>
+      <a class="nav-item" href="#">
+        <i class="bi bi-people"></i>
+        <span>Equipo</span>
+      </a>
+      <a class="nav-item" href="#">
+        <i class="bi bi-gear"></i>
+        <span>Configuración</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar avatar-sm"><i class="bi bi-person-fill"></i></div>
+        <div>
+          <div class="user-name">Usuario</div>
+          <div class="user-role">Local JSON</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <button
+          class="icon-btn d-lg-none"
+          type="button"
+          id="sidebarToggle"
+          aria-label="Abrir/cerrar menú"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div class="page-title">
+          <div class="title">{{board.name}}</div>
+          <div class="subtitle">Persistencia local activa (data.json)</div>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button
+          class="btn btn-light btn-sm"
+          type="button"
+          disabled
+          aria-label="Notificaciones"
+        >
+          <i class="bi bi-bell"></i>
+        </button>
+        <button
+          class="btn btn-light btn-sm"
+          type="button"
+          disabled
+          aria-label="Ayuda"
+        >
+          <i class="bi bi-question-circle"></i>
+        </button>
+        <div class="avatar avatar-md" aria-label="Usuario"><i
+            class="bi bi-person-fill"
+          ></i></div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabsbar">
+      <ul class="nav nav-tabs border-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">
+            <i class="bi bi-grid me-1"></i>Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-list-check me-1"></i>Tareas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-bug me-1"></i>Incidencias
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-bar-chart me-1"></i>Reportes
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SUBBAR -->
+    <div class="subbar">
+      <div class="filters">
+        <div class="filter">
+          <i class="bi bi-funnel"></i>
+          <select
+            class="form-select form-select-sm"
+            disabled
+            aria-label="Filtro por prioridad"
+          >
+            <option>Prioridad: Todas</option>
+            <option>Alta</option>
+            <option>Media</option>
+            <option>Baja</option>
+          </select>
+        </div>
+
+        <div class="filter">
+          <i class="bi bi-person"></i>
+          <input
+            class="form-control form-control-sm"
+            placeholder="Asignada a..."
+            disabled
+            aria-label="Filtro por usuario"
+          />
+        </div>
+
+        <div class="filter">
+          <i class="bi bi-calendar3"></i>
+          <input
+            class="form-control form-control-sm"
+            type="date"
+            disabled
+            aria-label="Filtro por fecha"
+          />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button
+          class="btn btn-primary btn-sm fw-semibold"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#createTask"
+          aria-expanded="false"
+          aria-controls="createTask"
+        >
+          <i class="bi bi-plus-circle me-1"></i>
+          Crear tarea
+        </button>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="collapse" id="createTask">
+      <div class="card card-soft shadow-sm border-0 mb-3">
+        <div class="card-body">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <h6 class="mb-0 fw-bold">Nueva tarea</h6>
+            <span class="text-muted small">Se crea en:
+              <strong>Por hacer</strong></span>
+          </div>
+
+          <form method="POST" action="/tareas" class="row g-2">
+            <div class="col-12 col-lg-4">
+              <label class="form-label small mb-1">Título</label>
+              <input
+                class="form-control"
+                name="title"
+                maxlength="60"
+                required
+              />
+            </div>
+
+            <div class="col-12 col-lg-3">
+              <label class="form-label small mb-1">Asignada a</label>
+              <input
+                class="form-control"
+                name="assignee"
+                maxlength="40"
+                required
+              />
+            </div>
+
+            <div class="col-6 col-lg-2">
+              <label class="form-label small mb-1">Fecha</label>
+              <input class="form-control" type="date" name="dueDate" required />
+            </div>
+
+            <div class="col-6 col-lg-3">
+              <label class="form-label small mb-1">Prioridad</label>
+              <select class="form-select" name="priority" required>
+                <option value="Alta">Alta</option>
+                <option value="Media" selected>Media</option>
+                <option value="Baja">Baja</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label small mb-1">Descripción</label>
+              <textarea
+                class="form-control"
+                name="description"
+                rows="2"
+                maxlength="140"
+                required
+              ></textarea>
+            </div>
+
+            <div class="col-12 d-flex justify-content-end">
+              <button class="btn btn-primary fw-semibold" type="submit">
+                <i class="bi bi-check2-circle me-1"></i>
+                Crear
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- KANBAN -->
+    <div class="kanban-wrap">
+      <div class="kanban-board">
+        {{#each board.lists}}
+          <section class="kanban-col" data-list-id="{{this.id}}">
+            <div class="col-head">
+              <div class="col-title">
+                <span class="col-dot"></span>
+                <span class="fw-bold text-capitalize">{{this.title}}</span>
+              </div>
+
+              <!-- IMPORTANTE: esta clase debe coincidir con el JS -->
+              <span class="count-badge" data-count>{{this.cards.length}}</span>
+            </div>
+
+            <!-- DROP ZONE -->
+            <div class="kanban-col-body" data-list-id="{{this.id}}">
+              {{#if this.cards.length}}
+                {{#each this.cards}}
+                  <div
+                    class="task-card shadow-sm"
+                    draggable="true"
+                    data-card-id="{{this.id}}"
+                    data-priority="{{this.priority}}"
+                    data-assignee="{{this.assignee}}"
+                  >
+                    <div class="task-top">
+                      <span class="task-id">
+                        {{#if this.publicId}}
+                          {{this.publicId}}
+                        {{else}}
+                          {{this.id}}
+                        {{/if}}
+                      </span>
+
+                      <div class="avatar avatar-xs" aria-label="Asignado">
+                        <i class="bi bi-person-fill"></i>
+                      </div>
+                    </div>
+
+                    <div class="task-title">{{this.title}}</div>
+                    <div class="task-desc">{{this.description}}</div>
+
+                    <div class="task-bottom">
+                      <span
+                        class="pill pill-{{this.priority}}"
+                      >{{this.priority}}</span>
+                      <span class="task-date">{{this.dueDate}}</span>
+                    </div>
+                  </div>
+                {{/each}}
+              {{else}}
+                <div class="empty-col text-muted small">Sin tareas por ahora.</div>
+              {{/if}}
+            </div>
+          </section>
+        {{/each}}
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/js/kanban-dnd.js"></script>
+<script src="/js/sidebar.js"></script>

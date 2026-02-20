@@ -1,0 +1,27 @@
+{
+  "board": {
+    "name": "KanbanPro - Sprint 1",
+    "lists": [
+      {
+        "id": "todo",
+        "title": "Por hacer",
+        "cards": []
+      },
+      {
+        "id": "doing",
+        "title": "En progreso",
+        "cards": []
+      },
+      {
+        "id": "done",
+        "title": "Hecho",
+        "cards": []
+      },
+      {
+        "id": "reopened",
+        "title": "Reabierto",
+        "cards": []
+      }
+    ]
+  }
+}
